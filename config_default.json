@@ -1,0 +1,23 @@
+{
+  "http":{
+    "host"        : "0.0.0.0",
+    "port"        : 80,
+    "https_port"  : 443,
+    "index"       :  "index.html",
+    "allow_origin": false
+  },
+  "is_https": false,
+  "ws":{
+      "opt":{
+            "host":"0.0.0.0",
+            "port":2030
+          }
+  },
+  "db":{
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "mdbuser",
+    "password": "a123258",
+    "database": "test"
+  }
+}

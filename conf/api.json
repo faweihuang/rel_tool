@@ -1,0 +1,62 @@
+[{
+    "name":"用户管理",
+    "val":"/api.user",
+    "icon":"&#xe770;",
+    "is_menu":true,
+    "children":[
+        {"name":"用户列表", "val":"/api.user/search", "is_menu":true, "url":"/page/user/index.html",
+          "children":[
+          {"name":"添加用户", "val":"/api.user/add"},
+          {"name":"修改用户", "val":"/api.user/update"},
+          {"name":"设置密码", "val":"/api.user/set_pwd"},
+          {"name":"删除角色", "val":"/api.user/del"}
+        ]},
+        {"name":"角色列表", "val":"/api.role/search", "is_menu":true, "url":"/page/user/role.html",
+          "children":[
+          {"name":"添加角色", "val":"/api.role/add"},
+          {"name":"修改角色", "val":"/api.role/update"},
+          {"name":"删除角色", "val":"/api.role/del"}
+        ]}
+    ]
+},{
+      "name":"数据库",
+      "val":"/api.dbs",
+      "is_menu":true,
+      "children": [
+            {"name":"新增配置","val":"/api.dbs/add"},
+            {"name":"修改配置","val":"/api.dbs/update"},
+            {"name":"删除配置","val":"/api.dbs/del"}
+      ]
+  },{
+    "name":"项目管理",
+    "val":"/api.project",
+    "is_menu":true,
+    "children": [
+      {"name":"创建项目","val":"/api.project/add"},
+      {"name":"修改项目","val":"/api.project/update"},
+      {"name":"删除项目","val":"/api.project/del"},
+      {"name":"查看发布节点","val":"/api.project/node"},
+      {"name":"新增发布节点","val":"/api.project/add_node"},
+      {"name":"修改发布节点","val":"/api.project/update_node"},
+      {"name":"删除发布节点","val":"/api.project/del_node"}
+    ]
+  },{
+    "name":"执行SQL",
+    "val":"/api.sql",
+    "is_menu":true,
+    "children": [
+      {"name":"创建任务","val":"/api.sql/add"},
+      {"name":"修改任务","val":"/api.sql/update"},
+      {"name":"执行任务","val":"/api.sql/run"},
+      {"name":"历史记录","val":"/api.sql/history"}
+    ]
+  },{
+    "name":"发布代码",
+    "val":"/api.release",
+    "is_menu":false
+  },{
+    "name":"日志信息",
+    "val":"/api.logs",
+    "is_menu":false
+  }
+]
