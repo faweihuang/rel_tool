@@ -17,13 +17,13 @@
            ret.msg = '未选择环境!';
        } else if(!d.project_id){
            ret.msg = '未选择项目!';
-       } else if(!d.rsync_user){
+       } /*else if(!d.rsync_user){
            ret.msg = '请输入同步帐号!';
        } else if(!d.rsync_name){
            ret.msg = '请输入同步项!';
        } else if(!d.nodes){
            ret.msg = '未输入服务器节点地址!';
-       } else {
+       } */else {
             ret.status = 1;
        }
 
@@ -33,10 +33,13 @@
        let data = {
          "milieu_id":d.milieu_id,
          "project_id":d.project_id,
-         "rsync_user":d.rsync_user,
+         "rsync_user":d.rsync_user ? d.rsync_user : '',
          "rsync_passwd":d.rsync_passwd ? d.rsync_passwd : '',
-         "rsync_name":d.rsync_name,
-         "nodes":d.nodes
+         "rsync_name":d.rsync_name ? d.rsync_name : '',
+         "shell_path":d.shell_path ? d.shell_path : '',
+         "is_sync":d.is_sync ? d.is_sync : '',
+         "nodes":d.nodes ? d.nodes : '',
+         "status":d.status ? d.status : 0
        };
 
        let dats = await DB.add(data);

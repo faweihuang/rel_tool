@@ -22,7 +22,7 @@ module.exports = {
           + ','  + DB.hex(d.rsync_name)
           + ','  + DB.hex(d.nodes)
           + ','  + DB.hex(d.shell_path)
-          + ','  + DB.hex(d.is_sync)
+          + ','  + DB.isNumber(d.is_sync)
           + ','  + Func.time()
           + ','  + DB.isNumber(d.status)
           + ")";
@@ -34,12 +34,12 @@ module.exports = {
         let field = [];
         if(d.milieu_id)               field.push('`milieu_id`='+DB.isNumber(d.milieu_id));
         if(d.project_id)             field.push('`project_id`='+DB.isNumber(d.project_id));
-        if(d.rsync_user)            field.push('`rsync_user`='+DB.hex(d.rsync_user));
-        if(d.rsync_passwd)     field.push('`rsync_passwd`='+DB.hex(d.rsync_passwd));
-        if(d.rsync_name)         field.push('`rsync_name`='+DB.hex(d.rsync_name));
-        if(d.nodes)                     field.push('`nodes`='+DB.hex(d.nodes));
-        if(d.shell_path)            field.push('`shell_path`='+DB.hex(d.shell_path));
-        if(d.is_sync)                  field.push('`is_sync`='+DB.hex(d.is_sync));
+        if('undefined' != typeof(d.rsync_user))            field.push('`rsync_user`='+DB.hex(d.rsync_user));
+        if('undefined' != typeof(d.rsync_passwd))     field.push('`rsync_passwd`='+DB.hex(d.rsync_passwd));
+        if('undefined' != typeof(d.rsync_name))         field.push('`rsync_name`='+DB.hex(d.rsync_name));
+        if('undefined' != typeof(d.nodes))                     field.push('`nodes`='+DB.hex(d.nodes));
+        if('undefined' != typeof(d.shell_path))            field.push('`shell_path`='+DB.hex(d.shell_path));
+        if(d.is_sync)                  field.push('`is_sync`='+DB.isNumber(d.is_sync));
         if(d.status)                     field.push('`status`='+DB.isNumber(d.status));
 
         sql += field.toString() +' where id=' + DB.isNumber(d.id);

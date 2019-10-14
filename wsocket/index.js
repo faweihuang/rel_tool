@@ -15,15 +15,15 @@ module.exports = function(msg, ws){
 
                  if(!dat.uid){
                      ret.msg = "参数错误! 未找到uid!";
-                     //Glob.rel_error_return(ws, ret);
+                     //Glob.ws_ret_close(ws, ret);
                      //return;
                  } else if(!info){
                       ret.msg = "未获得登录授权!";
-                      //Glob.rel_error_return(ws, ret);
+                      //Glob.ws_ret_close(ws, ret);
                       //return;
                   } else if(dat.token !== info.token){
                       ret.msg = "token错误!";
-                      //Glob.rel_error_return(ws, ret);
+                      //Glob.ws_ret_close(ws, ret);
                        //return;
                   } else {
                        ret.status = 1;
@@ -35,7 +35,7 @@ module.exports = function(msg, ws){
                           action:"ws收到错误请求!!",
                           val:ret.msg + ' ---> ' + JSON.stringify(dat)
                        });
-                       Glob.rel_error_return(ws, ret);
+                       Glob.ws_ret_close(ws, ret);
                        return;
                   }
 
@@ -62,7 +62,7 @@ module.exports = function(msg, ws){
                             action:"ws请求出错!!",
                             val:ret.msg + ' ---> ' + JSON.stringify(dat)
                          });
-                         Glob.rel_error_return(ws, ret);
+                         Glob.ws_ret_close(ws, ret);
                     break;
                  }
              } else { console.log("未知websocket数据: ", dat); }

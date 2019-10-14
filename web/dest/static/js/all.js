@@ -18550,7 +18550,7 @@ let Project_Object = {
          });
 
          if(row){
-               if(!row){ Project_Object.alert('未选择记录!'); return; }
+               if(!row){ Public_Object.alert('未选择记录!'); return; }
                $.each(obj, function(i,v){ v.val(row[i]); });
                if(row.is_sync){ is_sync.find("input[value='1']")[0].checked = true; }else{ is_sync.find("input[value='0']")[0].checked = true; }
                if(row.status){ status.find("input[value='1']")[0].checked = true; }else{ status.find("input[value='0']")[0].checked = true; }
@@ -18580,7 +18580,7 @@ let Project_Object = {
                let api_url = row ? window.Api.project.node_update : window.Api.project.node_add;
 
                get_dats(api_url,dats,function(d){
-                      if(!d.status){Project_Object.alert("发生错误: " + d.msg); return;}
+                      if(!d.status){Public_Object.alert("发生错误: " + d.msg); return;}
                       Project_Object.node_list(dats.project_id);
                });
                node.dialog('close');
@@ -18595,7 +18595,7 @@ let Project_Object = {
          status.find("input").removeAttr("checked");
 
          if(row){
-               if(!row){ Project_Object.alert('未选择记录!'); return; }
+               if(!row){ Public_Object.alert('未选择记录!'); return; }
                $.each(obj, function(i,v){ v.val(row[i]); });
                if(row.status){ status.find("input[value='1']")[0].checked = true; }else{ status.find("input[value='0']")[0].checked = true; }
                obj.create_date.val(UnixToDateTime(row.create_date));
@@ -18619,7 +18619,7 @@ let Project_Object = {
 
                 get_dats(api_url,dats,function(d){
                        if(!d.status){
-                            Project_Object.alert("发生错误: " + d.msg);
+                            Public_Object.alert("发生错误: " + d.msg);
                        }else {
                             window.Apps.data.project = d.data;
                        }
@@ -18638,12 +18638,12 @@ let Project_Object = {
          if(row){
            Public_Object.confirm({content:'<p>您确定要删除客户 "'+row.customer_name+'"</p>'}, function(){
                db.project.del(row.id, function(err){
-                  if(err) Project_Object.alert("操作失败!");
+                  if(err) Public_Object.alert("操作失败!");
                   Project_Object.list();
                });
            });
          } else {
-            Project_Object.alert("未选择记录!");
+            Public_Object.alert("未选择记录!");
          }
    },
    "node_list": function(id){

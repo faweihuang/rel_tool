@@ -137,10 +137,10 @@ async function release(ws, d){
                                 if(val) arr.push(val);
                         });
 
-                        if(arr.length > 0){
+                        //if(arr.length > 0){
                                raw.nodes = arr;
                                n_list.push(raw);
-                        }
+                        //}
                   });
 
                    if(n_list.length < 1){
@@ -172,22 +172,27 @@ async function release(ws, d){
 
    if(!opt.is_sync){
          //不执行同步
-         if(!shell_return){
-                 //写日志
-                 Logs.save({
-                   action:"["+opt.project_name+"]执行发布--> " + milieu.val,
-                   val:result_all
-                 }, {
-                   "session":{"userinfo":{"id":ws.info.id}},
-                   "request":{"ip":ws.client.ip}
-                 });
 
-                 Glob.ws_ret_close(ws, shell_return.ret);
+         //写日志
+         Logs.save({
+           action:"["+opt.project_name+"]执行发布--> " + milieu.val,
+           val:result_all
+         }, {
+           "session":{"userinfo":{"id":ws.info.id}},
+           "request":{"ip":ws.client.ip}
+         });
+
+         if(shell_return){
+             ret = shell_return.ret;
          } else {
-                ret.status=1;
-                Glob.ws_ret_close(ws, ret);
+             ret.msg = "Nothing to do!";
          }
 
+         Glob.ws_ret_close(ws, shell_return ? shell_return.ret : ret);
+
+   } else if(opt.ips.length < 1){
+        ret.msg="未找到发布节点2";
+        Glob.ws_ret_close(ws, ret);
    } else {
 
               const options =  [
