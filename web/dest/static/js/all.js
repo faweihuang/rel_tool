@@ -18794,7 +18794,7 @@ let Accounts_Object = {
    },
    "grants_list":function(row){
          let ids = row ? ',' + row.grants + ',' : '';
-         console.log(ids);
+         //console.log(ids);
          let grants = {
               "show": function(){
                      let data = this.children(window.Apps.data.grants);
