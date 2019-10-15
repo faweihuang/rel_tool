@@ -31,7 +31,6 @@ module.exports = {
    cache:{},
    rsync:{
         "bin":"/usr/bin/rsync"  //rsync路径
-        //"bin":"/data/sh/git-pull.sh"
    },
    online:{},
    code_path:"/home/hfw", //代码目录
