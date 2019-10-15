@@ -57,7 +57,7 @@ async function sql_task(ws, d){
                                  up_data.result = req.error;
                             } else {
                                  ret.status  = 1;
-                                 ret.result = req.result;
+                                 ret.result = JSON.stringify(req.result);
                                  up_data.result = JSON.stringify(req.result);
                            }
 
