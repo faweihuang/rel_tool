@@ -19078,7 +19078,7 @@ let Sql_Task_Object = {
       });
    },
    "be_run":function(){
-           let run = $("#run");
+           let run = $("#run_sql");
            run.find("> div:last-child").hide();
            run.find("> div:first-child").show();
            run.css("background-color","rgba(0,0,0,0.5)");
@@ -19104,13 +19104,14 @@ let Sql_Task_Object = {
            run.show();
    },
    "run": function(){
-           let run = $("#run");
+           let run = $("#run_sql");
            let obj = Apps.field(run.find("> div:first-child > div.input_list"), ['project_id','milieu_id']);
            run.find("> div:first-child").hide();
            run.find("> div:last-child").show();
            run.css("background-color","rgba(200,200,200)");
 
-           let row = $("#change_sql_task").data("row");
+           //let row = $("#change_sql_task").data("row");
+           let row = $("#sql_dg").datagrid("getSelected");
            if(!row){console.log("发生错误! 未找到记录信息!"); return;}
 
            window.Wsock.send($("#run_console"), "sql_task", {"id":row.id, "project_id":parseInt(obj.project_id.val()), "milieu_id":parseInt(obj.milieu_id.val())});
