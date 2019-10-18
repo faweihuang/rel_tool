@@ -25,7 +25,8 @@
        let data = {
          "project_name":d.project_name,
          "exclude":d.exclude ? d.exclude : '',
-         "note":d.note
+         "note":d.note,
+         "status":d.status ? d.status : 0
        };
 
        let dats = await DB.add(data);

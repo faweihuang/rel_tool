@@ -18657,7 +18657,7 @@ let Project_Object = {
                        let obj = Project_Object.o().right;
                        obj.find(" > ul").remove();
                        dats.data.forEach(function(v, i){
-                              let ul = $('<ul><li>'+milieus[v.milieu_id]+'</li><li>'+projects[v.project_id]+'</li><li>'+v.nodes.replace(/\n/g,', ')+'</li></ul>');
+                              let ul = $('<ul><li>'+milieus[v.milieu_id]+'</li><li>'+projects[v.project_id]+'</li><li><font color=green>'+v.nodes.replace(/\n/g,'</font>,<font color=green> ')+'</font></li></ul>');
                               ul.data("raw",v);
                               ul.click(function(){
                                    dom = $(this);
@@ -19955,13 +19955,19 @@ let Dbs_Object = {
              "callback":function(d){
                      let kinds = {"0":"MySQL","1":"Mssql","2":"sqlite"};
                      let projects = {};
+                     let milieu = {};
                      window.Apps.data.project.forEach(function(v,i){
                            projects[v.id.toString()] = v.project_name;
+                     });
+
+                     window.Apps.data.milieu.forEach(function(v,i){
+                           milieu[v.id.toString()] = v.milieu_name;
                      });
 
                      d.forEach(function(v,i){
                              v.kind_name = kinds[v.kind];
                              v.project_name = projects[v.project_id];
+                             v.milieu_name = milieu[v.milieu_id];
                              v.create_date = UnixToDateTime(v.create_date);
                              v.status_val= v.status ? '<font color=green>正常</font>' : '<font color=red>已禁用</font>';
                      });
