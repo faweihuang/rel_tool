@@ -7,6 +7,7 @@
     "allow_origin": false
   },
   "is_https": false,
+  "code_path":"/data/www",
   "ws":{
       "opt":{
             "host":"0.0.0.0",

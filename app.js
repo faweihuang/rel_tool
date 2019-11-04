@@ -23,6 +23,9 @@ if(config){
    //是否开启https 默认关闭
    if('undefined' !== typeof(config.is_https)) SYS_CONF.is_https = config.is_https;
 
+   //代码目录
+   if('undefined' !== typeof(config.code_path)) SYS_CONF.code_path = config.code_path;
+
    //日志目录
    if(config.logs_path) SYS_CONF.logs_path = config.logs_path;
 }

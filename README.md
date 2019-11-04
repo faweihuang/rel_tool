@@ -34,7 +34,16 @@ nodejs、rsync、mysql
 rsync
 
 ##### 配置文件
-config.json
+config.json (参考默认配置 config_default.json,  复制一份出来)
+配置项目:
+
+属性名  |  值  |  作用
+  ------------- | ------------- | -------------
+  http | object | web服务绑定地址与端口信息
+  is_https | string | 是否启用https
+  ws | object | websocket配置信息
+  db | object | 数据库配置信息
+  code_path | string | 项目代码目录信息(包括各节点项目代码所在目录)
 
 ##### 默认超级帐号
 用户名: reladmin  

@@ -33,7 +33,7 @@ module.exports = {
         "bin":"/usr/bin/rsync"  //rsync路径
    },
    online:{},
-   code_path:"/home/hfw", //代码目录
+   code_path:"/data/www", //代码目录
    db : {
           host: '127.0.0.1',
           port: 3306,
