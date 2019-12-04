@@ -39,7 +39,8 @@ function rel_exec(ws, opt, callback, bin){
       rsync.on('close', (code) => {
            setTimeout(function(){
                  ret.status = 1;
-                 ret.result = `\n运行结束，退出码 ${code}`;
+                 //ret.result = `\n运行结束，退出码 ${code}`;
+                 ret.result = `\n`;
                  if(callback) callback(result, ret);
                  //Glob.ws_ret_close(ws, ret);
                  wait_time = 0;
